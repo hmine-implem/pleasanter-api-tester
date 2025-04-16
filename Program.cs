@@ -17,6 +17,13 @@ public class Program
         "9998",
         "9999"
     ];
+    private static readonly View TEST_1_2_VIEW = new()
+    {
+        ColumnFilterHash = new ColumnFilterHash
+        {
+            Incomplete = true
+        }
+    };
 
     static async Task Main()
     {
@@ -29,9 +36,10 @@ public class Program
             Console.WriteLine("Complete.");
         }
     }
-    
+
     // ■WHAT'S TEST?
     // Test1-1. Selected = TEST_1_1_SELECTED
+    // Test1-2. View = TEST_1_2_VIEW
 
     static async Task PostAsync(HttpClient httpClient)
     {
@@ -58,4 +66,16 @@ public class PleasanterApiFieldes
     public required string ApiKey { get; set; }
     [JsonProperty("Selected")]
     public List<string>? Selected { get; set; }
+    [JsonProperty("View")]
+    public View? View { get; set; }
+}
+
+public class View{
+    [JsonProperty("ColumnFilterHash")]
+    public ColumnFilterHash? ColumnFilterHash { get; set; }
+}
+
+public class ColumnFilterHash{
+    [JsonProperty("Incomplete")]
+    public bool? Incomplete { get; set; }
 }
