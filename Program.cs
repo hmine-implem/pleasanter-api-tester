@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Newtonsoft.Json;
 
 public class Program
@@ -24,6 +24,7 @@ public class Program
             Incomplete = true
         }
     };
+    private static readonly bool TEST_1_3_ALL = true;
 
     static async Task Main()
     {
@@ -40,6 +41,7 @@ public class Program
     // ■WHAT'S TEST?
     // Test1-1. Selected = TEST_1_1_SELECTED
     // Test1-2. View = TEST_1_2_VIEW
+    // Test1-3. All = TEST_1_3_ALL
 
     static async Task PostAsync(HttpClient httpClient)
     {
@@ -66,6 +68,8 @@ public class PleasanterApiFieldes
     public required string ApiKey { get; set; }
     [JsonProperty("Selected")]
     public List<string>? Selected { get; set; }
+    [JsonProperty("All")]
+    public bool? All { get; set; }
     [JsonProperty("View")]
     public View? View { get; set; }
 }
