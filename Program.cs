@@ -67,11 +67,11 @@ public class PleasanterApiFieldes
     [JsonProperty("ApiKey")]
     public required string ApiKey { get; set; }
     [JsonProperty("Selected")]
-    public List<string>? Selected { get; set; }
+    public List<string>? Selected { get; set; } = null;
     [JsonProperty("All")]
-    public bool? All { get; set; }
+    public bool? All { get; set; } = false;
     [JsonProperty("View")]
-    public View? View { get; set; }
+    public View? View { get; set; } = null;
 }
 
 public class View{
